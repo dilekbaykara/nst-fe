@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript Sandbox</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <div class="container">
+      <div id="title-div"><button class="title-button" id="nst-button">Neural Style Transfer</button>
+      <button class="title-button" id="style-attribution-button">Style Attribution</button></div>
+
+      <form id="imageForm">
+        <div class="upload-div">
+          <div id="content-upload">
+            <div id="file-info-1" class="file-info">Select Content File</div>
+            <label
+              data-tooltip="Upload your content image for styles to be applied (.JPG file format)"
+              class="custom-file-upload"
+            >
+              Upload Content
+              <input
+                type="file"
+                id="contentImage"
+                name="content_image"
+                accept="image/*"
+                required
+              />
+            </label>
+          </div>
+          <div id="style-upload">
+            <div id="file-info-2" class="file-info">Select Style File</div>
+            <label
+              class="custom-file-upload"
+              data-tooltip="Upload your style image to manipulate appearance of content image (.JPG file format)"
+            >
+              Upload Style
+              <input
+                type="file"
+                id="styleImage"
+                name="style_image"
+                accept="image/*"
+                required
+              />
+            </label>
+          </div>
+        </div>
+
+        <button
+          type="submit"
+          class="stylize-button"
+          alt="Stylize Image"
+          id="style"
+        ></button>
+      </form>
+      <div class="images-div">
+        <div id="upload-title" class="title">Uploaded Images</div>
+        <div class="uploaded-images">
+         
+
+          <div class="image-div">
+            <!-- //Content Loader Placeholder -->
+            <div class="image-placeholder" id="loader-placeholder-content">
+              <div class="loader" id="content-loader"></div>
+            </div>
+            <div class="image-placeholder" id="img-placeholder-content">
+              Content Image
+            </div>
+
+              <img
+                id="uploadedContentImage"
+                src="#"
+                alt=""
+                class="uploaded-img"
+              />
+          </div>
+           
+          <div class="image-div">
+            <div class="image-placeholder" id="loader-placeholder-style">
+              <div class="loader" id="style-loader"></div>
+            </div>
+
+            <div class="image-placeholder" id="img-placeholder-style">
+              Style Image
+              <div class="loader" id="style-loader"></div>
+          </div>
+          <img
+          id="uploadedStyleImage"
+          src="#"
+          alt=""
+          class="uploaded-img"/>
+            </div>
+          </div>
+        </div>
+        <div class="result">
+          <div id="stylized-title" class="title">Stylized Image</div>
+          <div class="image-placeholder" id="img-style">Stylized Result</div>
+          <div class="image-placeholder" id="loader-placeholder-result">
+          <div class="loader" id="style-loader-3"></div>
+          </div>
+          <img id="stylizedImage" src="#" alt="" />
+        </div>
+
+
+        <form id="imageForm" class="target">
+          <div class="att-upload-div">
+            <div class="att-button-div" id="button-1">
+              Select Image 1
+              <label
+                class="style-custom-file-upload"
+                id="image1-btn"
+                data-tooltip="Upload your first image to compare similarity to second image (.JPG file format)"
+              >
+                Choose File
+                <input
+                  type="file"
+                  id="image1"
+                  name="image1"
+                  class="style-custom-file-upload"
+                  required
+                />
+              </label>
+            </div>
+            <div class="style-button-div" id="button-2">
+              Select Image 2
+              <label
+                class="style-custom-file-upload"
+                id="image2-btn"
+                data-tooltip="Upload your second image to compare similarity to first image (.JPG file format)"
+              >
+                Choose File
+                <input
+                  type="file"
+                  id="image2"
+                  name="image2"
+                  class="style-custom-file-upload"
+                  required
+                />
+              </label>
+            </div>
+          </div>
+  
+          <button
+            type="submit"
+            alt="Compare Styles"
+            class="style-compare-button"
+            id="compare"
+          ></button>
+        </form>
+        <div id="upload-title" class="target">Uploaded Images</div>
+        <div class="images">
+          <div class="style-image-div">
+            <div class="img-1-div">Image 1 Style Representation</div>
+            <div class="image-placeholder" id="loader-placeholder-1">
+              <div class="loader" id="loader-1"></div>
+            </div>
+            <div class="image-placeholder" id="img-placeholder-1">Image 1</div>
+            <img id="styleImage1" src="#" alt="" class="img-result" />
+          </div>
+          <div class="style-image-div">
+            <div class="img-2-div">Image 2 Style Representation</div>
+            <div class="image-placeholder" id="loader-placeholder-2">
+              <div class="loader" id="loader-2"></div>
+            </div>
+            <div class="image-placeholder" id="img-placeholder-2">Image 2</div>
+            <img id="styleImage2" src="#" alt="" class="img-result" />
+          </div>
+        </div>
+        <div class="style-result">
+          <h2>Similarity Percentage</h2>
+          <div class="loader" id="loader-3"></div>
+          <p id="similarity"></p>
+        </div>
+ 
+      </div>
+    </div>
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>
