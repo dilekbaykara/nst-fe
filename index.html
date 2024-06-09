@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>JavaScript Sandbox</title>
+    <title>Neural Style Transfer</title>
     <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8" />
   </head>
   <body>
     <div class="container">
-      <div id="title-div"><button class="title-button" id="nst-button">Neural Style Transfer</button>
-      <button class="title-button" id="style-attribution-button">Style Attribution</button></div>
+      <div id="title-div"><button class="title-button" id="nst-button" onclick="showStuff()">Neural Style Transfer</button>
+      <button class="title-button" id="sa-button">Style Attribution</button></div>
 
       <form id="imageForm">
-        <div class="upload-div">
+        <div class="upload-div" id="nst-upload-div">
           <div id="content-upload">
             <div id="file-info-1" class="file-info">Select Content File</div>
             <label
@@ -59,7 +59,7 @@
          
 
           <div class="image-div">
-            <!-- //Content Loader Placeholder -->
+            <!-- Content Loader Placeholder -->
             <div class="image-placeholder" id="loader-placeholder-content">
               <div class="loader" id="content-loader"></div>
             </div>
@@ -101,9 +101,10 @@
           <img id="stylizedImage" src="#" alt="" />
         </div>
 
+        <!-- Style Attribution -->
 
         <form id="imageForm" class="target">
-          <div class="att-upload-div">
+          <div class="att-upload-div" id="att-upload-div">
             <div class="att-button-div" id="button-1">
               Select Image 1
               <label
@@ -171,9 +172,10 @@
           <div class="loader" id="loader-3"></div>
           <p id="similarity"></p>
         </div>
- 
       </div>
+
     </div>
-    <script src="./app.js" type="module"></script>
+    
+    <script src="app.js"></script>
   </body>
 </html>

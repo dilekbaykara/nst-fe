@@ -1,56 +1,66 @@
-import "./styles.css";
+const nstElements = [
+  "nst-upload-div",
+  "content-upload",
+  "file-info-1",
+  "contentImage",
+  "style-upload",
+  "file-info-2",
+  "styleImage",
+  "style",
+  ".images-div",
+  "upload-title",
+  ".uploaded-images",
+  ".image-div",
+  ".result",
+  "img-placeholder-style",
+  "img-placeholder-content",
+  "stylized-title",
+  "img-style",
+];
 
-document
-  .getElementById("style-attribution-button")
-  .addEventListener("click", function () {
-    const elementsToToggle = [
-      ".target",
-      ".att-upload-div",
-      ".style-result",
-      ".style-image-div",
-      ".style-compare-button",
-      ".style-button-div",
-      ".style-custom-file-upload",
-      ".att-button-div",
-      ".stylize-button",
-      ".upload-div",
-      ".custom-file-upload",
-      ".images-div",
-      "#img-placeholder-style",
-      "#stylized-title",
-      "#img-style",
-    ];
+const saElements = [
+  "imageForm",
+  "att-upload-div",
 
-    elementsToToggle.forEach((selector) => {
-      toggle(document.querySelectorAll(selector));
-    });
-  });
+  "image1-btn",
+  "image1",
+  "button-2",
+  "image2-btn",
+  "image2",
+  "compare",
+  "upload-title",
+];
 
-function toggle(elements, specifiedDisplay) {
-  var element, index;
-
-  elements = elements.length ? elements : [elements];
-  for (index = 0; index < elements.length; index++) {
-    element = elements[index];
-
-    if (isElementHidden(element)) {
-      element.style.display = "";
-
-      // If the element is still hidden after removing the inline display
-      if (isElementHidden(element)) {
-        element.style.display = specifiedDisplay || "block";
-      }
-    } else {
+document.getElementById("sa-button").onclick = function () {
+  nstElements.forEach((id) => {
+    let element = document.getElementById(id);
+    if (element) {
       element.style.display = "none";
     }
-  }
-  function isElementHidden(element) {
-    return (
-      window.getComputedStyle(element, null).getPropertyValue("display") ===
-      "none"
-    );
-  }
-}
+  });
+
+  saElements.forEach((id) => {
+    let element = document.getElementById(id);
+    if (element) {
+      element.style.display = "flex";
+    }
+  });
+};
+
+document.getElementById("nst-button").onclick = function () {
+  saElements.forEach((id) => {
+    let element = document.getElementById(id);
+    if (element) {
+      element.style.display = "none";
+    }
+    nstElements.forEach((id) => {
+      let element = document.getElementById(id);
+      if (element) {
+        element.style.display = "";
+      }
+    });
+  });
+};
 
 document
   .getElementById("contentImage")
